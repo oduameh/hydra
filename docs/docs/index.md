@@ -1,36 +1,26 @@
-# Welcome
+# **Welcome**
 
-Hydra is a layer-two scalability solution for Cardano, which aims to increase
-the speed of transactions (low latency, high throughput) and minimize
-transaction cost.
+This section is a user manual for Hydra node operators. 
 
-This is the user manual for `hydra-node`, an implementation of the Hydra Head protocol, as originally published [here](https://eprint.iacr.org/2020/299.pdf). The `hydra-node` interfaces the Cardano blockchain, connects to other `hydra-node`s on a dedicated overlay network, runs a simplified (coordinated) Hydra Head protocol, and provides an API to clients.
+Hydra node is an implementation of the Hydra Head protocol, designed to enable fast and low-cost transactions by operating off-chain while leveraging the security of the main Cardano blockchain.
 
-:::warning Mainnet Availability disclaimer
+Decentralized applications (DApps), exchanges, and enterprise-level services can choose to run a Hydra node to participate in forming Hydra Heads – mini-ledgers that process transactions independently and in parallel, significantly enhancing throughput and reducing latency. 
 
-The Hydra Head protocol version 0.10.0 or newer is compatible with the Cardano
-mainnet, which means it is possible to run a `hydra-node` on mainnet using real
-funds.
+To run a Hydra node, participants should:
 
-Before running a `hydra-node` to take part in the Hydra Head protocol,
-developers are strongly encouraged to review the [known issues][known-issues] in
-the documentation in order to understand the current limitations and the
-possible consequences.
 
-By using Hydra Head protocol version 0.10.0 or newer, you understand the
-protocol is in development and that use of the `hydra-node` on mainnet is
-entirely at your own risk.
 
-You also acknowledge and agree to have an adequate understanding of the risks
-associated with use of the Hydra Head protocol version 0.10.0 or newer and that
-all information and materials published, distributed or otherwise made available
-on hydra.family and Hydra Github Repository is available on an ‘AS IS’ and ‘AS
-AVAILABLE’ basis, without any representations or warranties of any kind. All
-implied terms are excluded to the fullest extent permitted by law. For details,
-see also sections 7, 8 and 9 of the [Apache 2.0 License][license].
-:::
+* **Install and configure the node**: set up the Hydra node software, ensuring it is properly configured to connect with other Hydra nodes and the Cardano mainnet.
+* **Participate in Hydra heads**: collaborate with other nodes to create and manage Hydra heads, enabling batch processing of transactions off-chain.
+* **Synchronize with Cardano**: maintain synchronization with the main chain to ensure the security and finality of transactions processed by the Hydra heads.
 
-Now, without further ado, read more about the protocol [on the next page](./protocol-overview) or jump right in to [getting started using a local devnet](./getting-started).
+Navigate through tutorials and documentation guides to get started. If you want to learn more about Hydra, see this section. If you're interested in building, see this section.
 
-[known-issues]: ./known-issues.md
-[license]: https://github.com/input-output-hk/hydra/blob/master/LICENSE
+**Mainnet availability disclaimer \
+_The Hydra Head protocol version 0.10.0 or newer is compatible with the Cardano mainnet, allowing the running of a `hydra-node` on mainnet using real funds._**
+
+_Developers planning to participate in the Hydra Head protocol are strongly encouraged to review the [known issues](https://hydra.family/head-protocol/unstable/docs/known-issues) in the documentation to understand the current limitations and potential consequences._
+
+_By using Hydra Head protocol version 0.10.0 or newer, you acknowledge that the protocol is still in development and that using the hydra-node on mainnet entails certain risks._
+
+_You also affirm that you have a sufficient understanding of the risks associated with using the Hydra Head protocol version 0.10.0 or newer and that all information and materials provided on the Hydra documentation website and the Hydra GitHub repository are provided on an ‘AS IS’ and ‘AS AVAILABLE’ basis, without any representations or warranties of any kind. All implied terms are excluded to the fullest extent permitted by law. For more details, refer to sections 7, 8, and 9 of the [Apache 2.0 License.](https://github.com/input-output-hk/hydra/blob/master/LICENSE)_
