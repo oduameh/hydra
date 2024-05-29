@@ -3,11 +3,11 @@ To get started quickly, let’s walk you through our standard demo setup, which 
 
 * A cluster of three `hydra-node` directly connected to each other, each having access to one of three Hydra credentials: `Alice`, `Bob`, or `Carol`;
 * A single `cardano-node` producing blocks used as a (very fast) local `devnet`;
-* The `hydra tui` example clients to interact with the individual `hydra-node`.
+* The `hydra-tui` example clients to interact with the individual `hydra-node`.
 
 This tutorial uses [Docker](https://www.docker.com/get-started) to install the nodes, so ensure Docker is installed. If you want to explore alternative ways of running the tools, see the [variant tutorial](https://hydra.family/head-protocol/unstable/docs/getting-started-without-docker) or the [testnet tutorial](https://hydra.family/head-protocol/unstable/docs/tutorial/), which uses pre-built binaries. The documentation pages on [installation](https://hydra.family/head-protocol/unstable/docs/installation) and [configuration](https://hydra.family/head-protocol/unstable/docs/configuration) provide more details.
 
-Additionally, the `hydra tui` uses the HTTP/WebSocket API provided by the `hydra-node` behind the scenes. The [testnet tutorial](https://hydra.family/head-protocol/unstable/docs/tutorial/) will show how to use this API using low-level commands, or you can see the [API reference](https://hydra.family/head-protocol/unstable/api-reference) for more details.
+Additionally, the `hydra-tui` uses the HTTP/WebSocket API provided by the `hydra-node` behind the scenes. The [testnet tutorial](https://hydra.family/head-protocol/unstable/docs/tutorial/) will show how to use this API using low-level commands, or you can see the [API reference](https://hydra.family/head-protocol/unstable/api-reference) for more details.
 
 <details>
 <summary>Video demonstration (a bit dated)</summary>
@@ -74,7 +74,7 @@ Finally, now that the on-chain preparations are done, we can bring the Hydra net
 docker compose up -d hydra-node-{1,2,3}
 ```
 
-Using compose, you can start the demo Terminal-based User Interface (a.k.a. `hydra tui`) to interact with `hydra-node`. There are 3 preconfigured TUI services in the Compose definition: `hydra-tui-1`, `hydra-tui-2`, and `hydra-tui-3`. To connect to the first `hydra-node` in a terminal, run the following command:
+Using compose, you can start the demo Terminal-based User Interface (a.k.a. `hydra-tui`) to interact with Hydra nodes. There are 3 preconfigured TUI services in the Compose definition: `hydra-tui-1`, `hydra-tui-2`, and `hydra-tui-3`. To connect to the first Hydra node in a terminal, run the following command:
 
 ```shell
 docker compose run hydra-tui-1
@@ -84,6 +84,6 @@ This will start a full-blown terminal interface loaded with signing keys corresp
 
 ## Use the head
 
-Using the terminal interface of any node, you can now `[i]nit` the Hydra head and `[c]ommit` pre-distributed funds to it. Note that these steps are near-instant as the devnet is producing blocks much faster than a public testnet or the mainnet. After committing from all nodes, the head will automatically open, and you can also use the `hydra tui` or the API to create new transactions and submit them to the Hydra head.
+Using the terminal interface of any node, you can now `[i]nit` the Hydra head and `[c]ommit` pre-distributed funds to it. Note that these steps are near-instant as the devnet is producing blocks much faster than a public testnet or the mainnet. After committing from all nodes, the head will automatically open, and you can also use the `hydra-tui` or the API to create new transactions and submit them to the Hydra head.
 
 ![](./open-head.png)
