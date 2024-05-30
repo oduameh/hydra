@@ -74,7 +74,7 @@ Finally, now that the on-chain preparations are done, we can bring the Hydra net
 docker compose up -d hydra-node-{1,2,3}
 ```
 
-Using compose, you can start the demo Terminal-based User Interface (a.k.a. `hydra-tui`) to interact with Hydra nodes. There are 3 preconfigured TUI services in the Compose definition: `hydra-tui-1`, `hydra-tui-2`, and `hydra-tui-3`. To connect to the first Hydra node in a terminal, run the following command:
+Using `compose`, you can start the demo Terminal-based User Interface (`hydra-tui`) to interact with Hydra nodes. There are three preconfigured TUI services in the `compose` definition: `hydra-tui-1`, `hydra-tui-2`, and `hydra-tui-3`. To connect to the first Hydra node in a terminal, run the following command:
 
 ```shell
 docker compose run hydra-tui-1
