@@ -1,5 +1,5 @@
 # Getting started
-To get started quickly, let’s walk you through our standard demo setup, which consists of:
+To get started quickly, we'll walk you through the standard demo setup, which includes:
 
 * A cluster of three `hydra-node` directly connected to each other, each having access to one of three Hydra credentials: `Alice`, `Bob`, or `Carol`;
 * A single `cardano-node` producing blocks used as a (very fast) local `devnet`;
