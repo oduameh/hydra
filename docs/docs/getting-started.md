@@ -1,9 +1,9 @@
 # Getting started
 To get started quickly, we'll walk you through the standard demo setup, which includes:
 
-* A cluster of three `hydra-node` directly connected to each other, each having access to one of three Hydra credentials: `Alice`, `Bob`, or `Carol`;
-* A single `cardano-node` producing blocks used as a (very fast) local `devnet`;
-* The `hydra-tui` example clients to interact with the individual `hydra-node`.
+* A cluster of three `hydra-nodes`, each directly connected to the others and configured with one of three Hydra credentials: `Alice`, `Bob`, or `Carol`
+* A single `cardano-node` producing blocks used as a (very fast) local `devnet`
+* The `hydra-tui` example for clients to interact with the individual `hydra-node`.
 
 This tutorial uses [Docker](https://www.docker.com/get-started) to install the nodes, so ensure Docker is installed. If you want to explore alternative ways of running the tools, see the [variant tutorial](https://hydra.family/head-protocol/unstable/docs/getting-started-without-docker) or the [testnet tutorial](https://hydra.family/head-protocol/unstable/docs/tutorial/), which uses pre-built binaries. The documentation pages on [installation](https://hydra.family/head-protocol/unstable/docs/installation) and [configuration](https://hydra.family/head-protocol/unstable/docs/configuration) provide more details.
 
