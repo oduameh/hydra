@@ -60,7 +60,7 @@ You should see traces containing `TraceAdoptedBlock`, which means that the devne
 Do not wait too long between these two commands. If you get `TraceNoLedgerView` errors from the Cardano node, the genesis start time is too far in the past, and you need to update them by running `prepare-devnet.sh` again.
 :::
 
-Next, we need to give Alice, Bob, and Carol some UTXOs to commit and some ADA to pay fees. We include a script, `seed-devnet.sh`, that uses the `cardano-cli` in the already running `cardano-node` container to do that:
+Next, we need to give Alice, Bob, and Carol some UTXOs for committing and ada for paying fees. To do this, use the `seed-devnet.sh` script, which uses the `cardano-cli` within the already running `cardano-node` container:
 
 ```shell
 ./seed-devnet.sh
