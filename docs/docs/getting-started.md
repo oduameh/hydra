@@ -37,7 +37,7 @@ For convenience, we also provide a script `./run-docker.sh`, which combines all 
 ## Set up the devnet
 
 Next, prepare the devnet configuration to bootstrap a local Cardano blockchain. 
-**Note** we use a simple variant of Cardano that requires no stake pools whatsoever.
+**Note** that we use a simplified variant of Cardano that does not require any stake pools.
 
 ```shell
 ./prepare-devnet.sh
