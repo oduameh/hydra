@@ -4,19 +4,26 @@ sidebar_position: 1
 
 # Commit using a blueprint
 
-This guide provides a walkthrough on using `cardano-cli` to assemble necessary components for committing funds to a `Head` using a blueprint transaction.
+This guide provides a walkthrough on using `cardano-cli` to assemble the necessary components for committing funds to a `head` using a blueprint transaction.
 
-**Prerequisites**: Access to the hydra-node repository, and the `hydra-node`, `hydra-tui`, `cardano-cli`, and `curl` binaries.
+**Prerequisites**
 
-## Step 1. Prepare the environment
+You should have access to:
+
+- `hydra-node` repository
+- `hydra-tui`
+- `cardano-cli`, and
+- `curl` binaries.
+
+## Step 1
 You can use `cardano-cli` to create a _blueprint_ transaction from some `UTXO` you own. First, initiate a Cardano-node on the pre-production network:
 
  ```shell
  ./testnets/cardano-node.sh ~/code/hydra/testnets/preprod
  ```
 
-## Step 2. Identify the UTXO
-Determine which `UTXO` you intend to commit to the `Head`. For this example, we use Alice's external wallet key to identify her address:
+## Step 2
+Determine which `UTXO` you intend to commit to the `head`. This example uses Alice's external wallet key to identify her address:
 
  ```shell
  cardano-cli address build \
@@ -59,8 +66,8 @@ cardano-cli query utxo \
 }
 ```
 
-## Step 3.
-Select the first `UTXO`, which has 8 ada available. Use 5 ada to commit and rely on `hydra-node` to balance the commit transaction.
+## Step 3
+Select the first `UTXO`, which has eight ada available. Use five ada to commit and rely on `hydra-node` to balance the commit transaction.
 
 ```shell
 cardano-cli transaction build-raw \
@@ -71,13 +78,13 @@ cardano-cli transaction build-raw \
   --out-file tx.json
 ```
 
-## Step 4.
-Now we have the _blueprint_ transaction in the `tx.json` file. To have `hydra-node` give us a draft commit transaction, we need to:
+## Step 4
+You should now have the _blueprint_ transaction in the `tx.json` file. For `hydra-node` to provide a draft commit transaction, you need to:
 
 - Obtain the protocol parameters needed to run the `hydra-node`
 - Ensure the `hydra-node` is up and running
 - Have the `head` in the initializing state
-- Submit the http request to the `hydra-node` api server using the _blueprint_ transaction we just created and the `UTXO` used for it's input.
+- Submit the HTTP request to the `hydra-node` API server using the _blueprint_ transaction you just created and the `UTXO` used for its input.
 
 
 Query the protocol parameters:
@@ -93,7 +100,7 @@ cardano-cli query protocol-parameters \
 ## Step 5
 Start the `hydra-node` as a _single_ party head instance.
 
-Note: The value `6264cee4d5eab3fb58ab67f3899ecbcc0d7e72732a2d9c1c5d638115db6ca711` comes from `hydra-node` release [0.16.0](https://github.com/input-output-hk/hydra/releases/tag/0.16.0)
+Note: The value `6264cee4d5eab3fb58ab67f3899ecbcc0d7e72732a2d9c1c5d638115db6ca711` comes from the `hydra-node` release [0.16.0](https://github.com/input-output-hk/hydra/releases/tag/0.16.0).
 
 ```shell
 hydra-node \
@@ -119,9 +126,9 @@ hydra-tui \
 
 Press `i` to initialize the `head`.
 
-Once the head is in the `Initializing` state, we are ready to send the HTTP request to the `/commit` API path.
+Once the head is in the `Initializing` state, you can send the HTTP request to the `/commit` API path.
 
-Assemble the request body using the `cborHex` field from the tx-body file `tx.json` and the JSON representation of the `UTXO` we used as input.
+Assemble the request body using the `cborHex` field from the tx-body file `tx.json` and the JSON representation of the `UTXO` you used as input.
 
 This is the valid JSON request:
 
@@ -149,7 +156,7 @@ This is the valid JSON request:
 
 Save this JSON to a `commit-request.json` file.
 
-Now, please prompt the running `hydra-node` to draft a commit transaction for us:
+You can now prompt the running `hydra-node` to draft a commit transaction:
 
 
 ```
@@ -176,5 +183,4 @@ cardano-cli transaction submit \
   --testnet-magic 1
 ```
 
-If we start the `hydra-tui` and wait a bit until the transaction we just sent is re-observed by the `hydra-node` we should see that the `Head` is now open.
-
+If you start the `hydra-tui` and wait until the transaction you just sent is re-observed by the `hydra-node` we should see that the head is now open.
