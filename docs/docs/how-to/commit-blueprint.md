@@ -4,19 +4,22 @@ sidebar_position: 1
 
 # Commit using a blueprint
 
-This guide provides a walkthrough on using `cardano-cli` to assemble necessary components for committing funds to a `Head` using a blueprint transaction.
+ This is a small walk-through on how to use `cardano-cli` to assemble everything needed to commit funds to a `Head` using a so-called blueprint transaction.
 
-**Prerequisites**: Access to the hydra-node repository, and the `hydra-node`, `hydra-tui`, `cardano-cli`, and `curl` binaries.
+ Example assumes you have the hydra-node repo at your disposal together with `hydra-node`, `hydra-tui`, `cardano-cli` and `curl` binaries.
 
-## Step 1. Prepare the environment
-You can use `cardano-cli` to create a _blueprint_ transaction from some `UTXO` you own. First, initiate a Cardano-node on the pre-production network:
+ We can use `cardano-cli` to create a _blueprint_ transaction from some `UTxO` we own.
+
+ First we need a running cardano-node so let's spin one on the preprod network:
+
 
  ```shell
  ./testnets/cardano-node.sh ~/code/hydra/testnets/preprod
  ```
 
-## Step 2. Identify the UTXO
-Determine which `UTXO` you intend to commit to the `Head`. For this example, we use Alice's external wallet key to identify her address:
+ Now we need to find the `UTxO` you want to commit to the `Head`
+
+ In this example we will use Alice and her external wallet key so first let's find out the address:
 
  ```shell
  cardano-cli address build \
@@ -26,7 +29,7 @@ Determine which `UTXO` you intend to commit to the `Head`. For this example, we 
 addr_test1vp5cxztpc6hep9ds7fjgmle3l225tk8ske3rmwr9adu0m6qchmx5z
  ```
 
-Next, query to see what `UTXO` Alice has:
+and query to see what `UTxO` Alice has:
 
 ```shell
 cardano-cli query utxo \
@@ -59,8 +62,7 @@ cardano-cli query utxo \
 }
 ```
 
-## Step 3.
-Select the first `UTXO`, which has 8 ada available. Use 5 ada to commit and rely on `hydra-node` to balance the commit transaction.
+Let's pick the first `UTxO` which has total of 8 ADA available. Let's use 5 ADA to commit and rely on `hydra-node` to balance the commit transaction.
 
 ```shell
 cardano-cli transaction build-raw \
@@ -71,16 +73,17 @@ cardano-cli transaction build-raw \
   --out-file tx.json
 ```
 
-## Step 4.
-Now we have the _blueprint_ transaction in the `tx.json` file. To have `hydra-node` give us a draft commit transaction, we need to:
+So now we have the _blueprint_ transaction present in the `tx.json` file.
 
-- Obtain the protocol parameters needed to run the `hydra-node`
-- Ensure the `hydra-node` is up and running
-- Have the `head` in the initializing state
-- Submit the http request to the `hydra-node` api server using the _blueprint_ transaction we just created and the `UTXO` used for it's input.
+In order to have `hydra-node` give us a draft commit transaction we need to:
+
+- Obtain protocol-parameters needed to run the `hydra-node`
+- Have the `hydra-node` up and running
+- Have the `Head` in the initializing state
+- Submit the http request to the `hydra-node` api server using the _blueprint_ transaction we just created and the `UTxO` used for it's input.
 
 
-Query the protocol parameters:
+Query the preview protocol-parameters:
 
 ```shell
 cardano-cli query protocol-parameters \
@@ -90,8 +93,7 @@ cardano-cli query protocol-parameters \
 
 ```
 
-## Step 5
-Start the `hydra-node` as a _single_ party head instance.
+Start the `hydra-node` in as a _single_ party Head instance.
 
 Note: The value `6264cee4d5eab3fb58ab67f3899ecbcc0d7e72732a2d9c1c5d638115db6ca711` comes from `hydra-node` release [0.16.0](https://github.com/input-output-hk/hydra/releases/tag/0.16.0)
 
@@ -117,13 +119,15 @@ hydra-tui \
   --node-socket testnets/preprod/node.socket
 ```
 
-Press `i` to initialize the `head`.
+Now press `i` to initialize the `Head`.
 
-Once the head is in the `Initializing` state, we are ready to send the HTTP request to the `/commit` API path.
+Once we see that the head is in the `Initializing` state we are ready to send the HTTP request to the `/commit` API path.
 
-Assemble the request body using the `cborHex` field from the tx-body file `tx.json` and the JSON representation of the `UTXO` we used as input.
+To assemble the request body we will use the `cborHex` field from the tx-body file `tx.json`.
 
-This is the valid JSON request:
+To get the json representation of the `UTxO` we used as the input we can just copy/paste the output we got from cardano-cli when we did a `UTxO` query:
+
+This is the valid json request:
 
 ```shell
 {
@@ -147,9 +151,9 @@ This is the valid JSON request:
 }
 ```
 
-Save this JSON to a `commit-request.json` file.
+Let's save this json to commit-request.json file.
 
-Now, please prompt the running `hydra-node` to draft a commit transaction for us:
+Now, it is time to ask the running `hydra-node` to draft a commit transaction for us:
 
 
 ```
@@ -158,9 +162,9 @@ curl -X POST 127.0.0.1:4001/commit \
 
 ```
 
-This yields a large CBOR blob, which you can save to the `commit-tx.json` file.
+This yields a large cbor blob which we can save to `commit-tx.json` file.
 
-Next, sign and submit the draft of the commit transaction:
+Now we need to sign and submit the draft commit transaction.
 
 ```shell
 
