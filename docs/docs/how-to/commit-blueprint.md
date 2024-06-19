@@ -9,7 +9,7 @@ This guide provides a walkthrough on using `cardano-cli` to assemble necessary c
 **Prerequisites**: Access to the hydra-node repository, and the `hydra-node`, `hydra-tui`, `cardano-cli`, and `curl` binaries.
 
 ## Step 1. Prepare the environment
-Initiate a Cardano-node on the pre production network:
+You can use `cardano-cli` to create a _blueprint_ transaction from some `UTXO` you own. First, initiate a Cardano-node on the pre-production network:
 
  ```shell
  ./testnets/cardano-node.sh ~/code/hydra/testnets/preprod
@@ -76,7 +76,7 @@ Now we have the _blueprint_ transaction in the `tx.json` file. To have `hydra-no
 
 - Obtain the protocol parameters needed to run the `hydra-node`
 - Ensure the `hydra-node` is up and running
-- Have the `Head` in the initializing state
+- Have the `head` in the initializing state
 - Submit the http request to the `hydra-node` api server using the _blueprint_ transaction we just created and the `UTXO` used for it's input.
 
 
@@ -90,8 +90,8 @@ cardano-cli query protocol-parameters \
 
 ```
 
-## Step.
-Start the `hydra-node` as a _single_ party Head instance.
+## Step 5
+Start the `hydra-node` as a _single_ party head instance.
 
 Note: The value `6264cee4d5eab3fb58ab67f3899ecbcc0d7e72732a2d9c1c5d638115db6ca711` comes from `hydra-node` release [0.16.0](https://github.com/input-output-hk/hydra/releases/tag/0.16.0)
 
@@ -117,7 +117,7 @@ hydra-tui \
   --node-socket testnets/preprod/node.socket
 ```
 
-Press `i` to initialize the `Head`.
+Press `i` to initialize the `head`.
 
 Once the head is in the `Initializing` state, we are ready to send the HTTP request to the `/commit` API path.
 
@@ -158,9 +158,9 @@ curl -X POST 127.0.0.1:4001/commit \
 
 ```
 
-This yields a large CBOR blob which we can save to `commit-tx.json` file.
+This yields a large CBOR blob, which you can save to the `commit-tx.json` file.
 
-Now we need to sign and submit the draft commit transaction.
+Next, sign and submit the draft of the commit transaction:
 
 ```shell
 

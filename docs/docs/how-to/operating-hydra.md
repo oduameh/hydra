@@ -8,14 +8,14 @@ sidebar_position: 3
 import TerminalWindow from '@site/src/components/TerminalWindow';
 ```
 
-This page provides guidance for Hydra users on troubleshooting issues when running their instances of `hydra-node` and participating in a Hydra Head.
+This page guides Hydra users on troubleshooting issues when running their instances of `hydra-node` and participating in a Hydra head.
 
-## Example Setup
+## Example setup
 
 We offer sample node configurations that will help you get started with hosting a Hydra node on virtual machines in the cloud. These configurations are available in the [`sample-node-config/` directory](https://github.com/input-output-hk/hydra/tree/master/sample-node-config/).
 
 
-### Google Cloud w/ Terraform
+### Google Cloud with Terraform
 
 This setup includes a [docker-compose.yaml](https://github.com/input-output-hk/hydra/blob/master/sample-node-config/gcp/docker-compose.yaml) file, which serves as a robust template for configuring `cardano-node` and `hydra-node` services. Additionally, various scripts are provided to assist with setting up your cluster.
 
@@ -61,15 +61,15 @@ hydra_head_tx_confirmation_time_ms_count  0
 
 ## Common Issues
 
-### No Head is observed from the chain
+### No head is observed from the chain
 
 * Ensure the `hydra-node` is connected to a `cardano-node` that's operating on the correct network. Verify the `--network` command-line argument and the `cardano-node` configuration.
 * Remember, the `hydra-node` cannot start if it is unable to connect to the `cardano-node`, which might require time as the `cardano-node` must revalidate its database and potentially reconstruct its ledger state upon startup. Its connections are not open until it is fully prepared. If running as a service or a container, ensure that the orchestrator restarts the process when it crashes.
-* Check that the _Scripts_ transaction identifier is valid. This identifier is provided on the [release](https://github.com/input-output-hk/hydra/releases/tag/0.10.0) page for the three major networks (`preview`, `preprod`, `mainnet`).
+* Check that the _Scripts_ transaction identifier is valid. This identifier is provided on the [release](https://github.com/input-output-hk/hydra/releases/tag/0.10.0) page for the three major networks (`preview`, `pre-production`, `mainnet`).
 * Verify that the `hydra-node`'s _Cardano signing key_ is consistent with the _Verification key_ from the `Init` transaction. Ensure the `--cardano-signing-key` parameter points to the correct key, and that peers have the accurate `--cardano-verification-key` for your node.
 * Confirm that peers' _Cardano verification keys_ are accurate. This mirrors the above issue; check parameters on all peers.
 
 ### Head does not make progress
 
-* Confirm peers are properly connected to each other. Verify the `--peer` arguments point to the correct `host:port` for each peer. The `PeerConnected` message should be observed by the client or appear in the logs and be consistent across all peers involved in a Head.
-* Ensure the _Hydra signing key_ for your node or the _Hydra verification keys_ for peers match what each node expects. Verify that `AckSn` messages are received by all parties and that the `LogicOutcome` log does not contain any errors.
+* Confirm peers are properly connected to each other. Verify the `--peer` arguments point to the correct `host:port` for each peer. The `PeerConnected` message should be observed by the client or appear in the logs and be consistent across all peers involved in a head.
+* Ensure the _Hydra signing key_ for your node or the _Hydra verification keys_ for peers match each node's expectations. Verify that `AckSn` messages are received by all parties and that the `LogicOutcome` log contains no errors.

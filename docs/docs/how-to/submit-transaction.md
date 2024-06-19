@@ -4,9 +4,9 @@ sidebar_position: 2
 
 # Submit a transaction
 
-This section describes how to submit a transaction to an already open Head using the `NewTx` command of the WebSocket API.
+This section describes how to submit a transaction to an already open head using the `NewTx` command of the WebSocket API.
 
-First, query the UTXO available in the Head:
+First, query the UTXO available in the head:
 
 ```
 curl localhost:4001/snapshot/utxo | jq
@@ -29,7 +29,7 @@ Below is an example response:
 }
 ```
 
-Assume the single UTXO is owned by `some-payment-key.sk` and you wish to transfer all of it to a different address. The following commands use cardano-cli to construct and sign a transaction:
+Assuming the single UTXO is owned by `some-payment-key.sk` and you want to send all of it to another address, you can use `cardano-cli` (or your preferred transaction builder) to construct and sign a transaction:
 
 ```shell title="Transaction building"
 cardano-cli transaction build-raw \
@@ -53,4 +53,4 @@ This command generates a message suitable for submission to the `hydra-node` via
 cat tx-signed.json | jq -c '{tag: "NewTx", transaction: .}' | websocat "ws://127.0.0.1:4001?history=no"
 ```
 
-The transaction will be validated by all connected `hydra-node` instances. It will result in either a `TxInvalid` message, providing a reason for rejection, or a `TxValid` message followed by a `SnapshotConfirmed`, updating the UTXO available in the Head shortly thereafter.
+The transaction will be validated by all connected `hydra-node` instances. It will result in either a `TxInvalid` message, providing a reason for rejection, or a `TxValid` message followed by a `SnapshotConfirmed`, updating the UTXO available in the head shortly after that.
