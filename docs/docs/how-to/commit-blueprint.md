@@ -8,14 +8,14 @@ This guide provides a walkthrough on using `cardano-cli` to assemble necessary c
 
 **Prerequisites**: Access to the hydra-node repository, and the `hydra-node`, `hydra-tui`, `cardano-cli`, and `curl` binaries.
 
-## Step 1. 
+## Step 1. Prepare the environment
 Initiate a Cardano-node on the pre production network:
 
  ```shell
  ./testnets/cardano-node.sh ~/code/hydra/testnets/preprod
  ```
 
-## Step 2.
+## Step 2. Identify the UTXO
 Determine which `UTXO` you intend to commit to the `Head`. For this example, we use Alice's external wallet key to identify her address:
 
  ```shell
@@ -90,7 +90,7 @@ cardano-cli query protocol-parameters \
 
 ```
 
-## Step 5.
+## Step.
 Start the `hydra-node` as a _single_ party Head instance.
 
 Note: The value `6264cee4d5eab3fb58ab67f3899ecbcc0d7e72732a2d9c1c5d638115db6ca711` comes from `hydra-node` release [0.16.0](https://github.com/input-output-hk/hydra/releases/tag/0.16.0)
