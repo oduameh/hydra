@@ -7,7 +7,7 @@
 
 <details>
 <summary>When Hydra?</summary>
-The project is available on all Cardano networks (including mainnet), and releases with new features become available every four to six weeks. The roadmap is publicly available on <a href="https://github.com/orgs/input-output-hk/projects/21/views/25">Github</a> 
+The project is available on all Cardano networks (including mainnet), and releases with new features become available every four to six weeks. The roadmap is publicly available on <a href="https://github.com/orgs/input-output-hk/projects/21/views/25">GitHub.</a> 
 </details>
 
 <details>
