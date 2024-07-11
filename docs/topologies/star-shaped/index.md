@@ -3,7 +3,7 @@ sidebar_label: 'Star-shaped Network'
 sidebar_position: 4
 ---
 
-# Star-Shaped Head Network
+# Star-Shaped Head network
 
 :hammer_and_wrench: This document is a work in progress
 
@@ -32,7 +32,7 @@ _Questions_:
 * What kinds of transactions should be supported? HTLCs are suitable for payment-style transactions but not necessarily for DApps, unless adapted.
   * It seems to be assumed implicitly that the server can "route" a transaction from one Head to the appropriate Head, implying it "understands" the addresses of UTXOs posted in Heads.
 
-## On-Chain Transactions
+## On-Chain transactions
 
 The diagram below represents the lifecycle of two pairwise Heads between **Alice**, **Bob**, and the **Server**.
 
@@ -45,7 +45,7 @@ _Remarks_:
   * If the final UTXO set is consistent, then it can be fanned out by any party. However, this could result in one `ν_head` staying dangling and becoming unspendable as it would recreate an already existing UTXO (grayed out transaction in the diagram)
 * The lifecycles of the heads are interconnected: when one is closed, the other must also be closed, as ensured by the server.
 
-## Off-Chain Transactions
+## Off-Chain transactions
 
 The following diagram depicts the sequence of messages exchanged between various `Node`s to ensure transaction propagation.
 

@@ -3,7 +3,7 @@ sidebar_label: 'Delegated Head'
 sidebar_position: 4
 ---
 
-# Delegated Head Network
+# Delegated Head network
 
 This document outlines the behavior and structure of the so-called _Delegated Hydra Head Network_.
 
@@ -29,7 +29,7 @@ Client nodes can go offline without affecting the progress of the Hydra Head. Th
 
 Operator nodes maintain the _Hydra keys_ necessary for signing snapshots and the _Cardano keys_ required for advancing the Head State Machine on L1. Each operator can manage connections with hundreds of clients through potentially short-lived _WebSocket_ connections.
 
-## Use Cases
+## Use cases
 
 This deployment model, while requiring some level of trust from clients towards operators and involving the custodianship of funds committed to the Head, offers a straightforward method to create a _Side-chain-a-la-carte_. In this model, Operators are accountable for the safety and liveness of the network. These alternative chains can be created and deployed ad-hoc without the complexities associated with ‘classic’ side-chains.
 
