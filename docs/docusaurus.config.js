@@ -146,12 +146,12 @@ const config = {
         items: [
           {
             to: "/docs",
-            label: "User Manual",
+            label: "User manual",
             position: "left",
           },
           {
             to: "/docs/dev",
-            label: "Developer Documentation",
+            label: "Developer documentation",
             position: "left",
           },
           {
@@ -161,7 +161,7 @@ const config = {
           },
           {
             to: "/use-cases",
-            label: "Use Cases",
+            label: "Use cases",
             position: "right",
           },
           {
