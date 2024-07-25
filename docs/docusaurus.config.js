@@ -178,7 +178,7 @@ const config = {
             title: "Contributing",
             items: [
               {
-                label: "Coding Standards",
+                label: "Coding standards",
                 to: "https://github.com/cardano-scaling/hydra/wiki/Coding-Standards",
               },
               {
@@ -186,7 +186,7 @@ const config = {
                 to: "/adr",
               },
               {
-                label: "Testing Strategy",
+                label: "Testing strategy",
                 to: "https://github.com/cardano-scaling/hydra/wiki/Testing-Strategy",
               },
             ],
@@ -199,7 +199,7 @@ const config = {
                 href: "https://discord.gg/Qq5vNTg9PT",
               },
               {
-                label: "Github Discussions",
+                label: "Github discussions",
                 href: "https://github.com/cardano-scaling/hydra/discussions",
               },
               {
@@ -212,7 +212,7 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Haskell Packages",
+                label: "Haskell packages",
                 to: "/docs/dev/haskell-packages",
               },
               {
@@ -229,11 +229,11 @@ const config = {
             title: "Legal",
             items: [
               {
-                label: "Terms & Conditions",
+                label: "Terms and conditions",
                 to: "https://static.iohk.io/terms/iohktermsandconditions.pdf",
               },
               {
-                label: "Privacy Policy",
+                label: "Privacy policy",
                 to: "https://static.iohk.io/terms/iog-privacy-policy.pdf",
               },
               {
