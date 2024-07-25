@@ -146,12 +146,12 @@ const config = {
         items: [
           {
             to: "/docs",
-            label: "User Manual",
+            label: "User manual",
             position: "left",
           },
           {
             to: "/docs/dev",
-            label: "Developer Documentation",
+            label: "Developer documentation",
             position: "left",
           },
           {
@@ -161,7 +161,7 @@ const config = {
           },
           {
             to: "/use-cases",
-            label: "Use Cases",
+            label: "Use cases",
             position: "right",
           },
           {
@@ -178,7 +178,7 @@ const config = {
             title: "Contributing",
             items: [
               {
-                label: "Coding Standards",
+                label: "Coding standards",
                 to: "https://github.com/cardano-scaling/hydra/wiki/Coding-Standards",
               },
               {
@@ -186,7 +186,7 @@ const config = {
                 to: "/adr",
               },
               {
-                label: "Testing Strategy",
+                label: "Testing strategy",
                 to: "https://github.com/cardano-scaling/hydra/wiki/Testing-Strategy",
               },
             ],
@@ -199,7 +199,7 @@ const config = {
                 href: "https://discord.gg/Qq5vNTg9PT",
               },
               {
-                label: "Github Discussions",
+                label: "GitHub discussions",
                 href: "https://github.com/cardano-scaling/hydra/discussions",
               },
               {
@@ -212,7 +212,7 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Haskell Packages",
+                label: "Haskell packages",
                 to: "/docs/dev/haskell-packages",
               },
               {
@@ -229,11 +229,11 @@ const config = {
             title: "Legal",
             items: [
               {
-                label: "Terms & Conditions",
+                label: "Terms and conditions",
                 to: "https://static.iohk.io/terms/iohktermsandconditions.pdf",
               },
               {
-                label: "Privacy Policy",
+                label: "Privacy policy",
                 to: "https://static.iohk.io/terms/iog-privacy-policy.pdf",
               },
               {
