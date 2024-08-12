@@ -101,11 +101,11 @@ writeTransactionCostMarkdown hdl = do
 pageHeader :: [Text]
 pageHeader =
   [ "--- "
-  , "sidebar_label: 'Transactions Costs' "
+  , "sidebar_label: 'Transaction costs' "
   , "sidebar_position: 3 "
   , "--- "
   , ""
-  , "# Transactions Costs "
+  , "# Transactions costs "
   , ""
   , "Sizes and execution budgets for Hydra protocol transactions. Note that unlisted parameters are currently using `arbitrary` values and results are not fully deterministic and comparable to previous runs."
   , ""
